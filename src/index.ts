@@ -1,7 +1,7 @@
 import {
     Engine,
     Scene,
-    SceneLoader, FreeCamera, Vector3,Color4
+    SceneLoader, FreeCamera, Vector3, Color4, float
 } from "@babylonjs/core"
 import {
     AdvancedDynamicTexture
@@ -28,7 +28,7 @@ const scene = new Scene(engine)
 //TODO remove inspector
 //new Inspector()
 
-cameraSettings(scene, canvas)
+const camera = cameraSettings(scene, canvas)
 lightSettings(scene)
 groundSettings(scene)
 
@@ -69,6 +69,16 @@ engine.runRenderLoop(() => scene.render())
 // 		// })
 //     }
 // )
+
+// @ts-ignore
+window.newBackgroundColor = (r: float, g: float, b: float, a: float) => {
+    scene.clearColor = new Color4(r, g, b, a)
+}
+
+// @ts-ignore
+window.newCameraRotationAndPosition = (x: number, y: number, z: number) =>{
+    camera.rotation = new Vector3(x, y, z)
+}
 
 SceneLoader.Append("scene/babylon-arena/",
 "arena-babylon.incremental.babylon",
