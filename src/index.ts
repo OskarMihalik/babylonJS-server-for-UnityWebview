@@ -76,7 +76,7 @@ window.newBackgroundColor = (r: float, g: float, b: float, a: float) => {
 }
 
 // @ts-ignore
-window.newCameraRotationAndPosition = (x: number, y: number, z: number) =>{
+window.newCameraRotationAndPosition = (x: float, y: float, z: float) =>{
     camera.rotation = new Vector3(x, y, z)
 }
 
